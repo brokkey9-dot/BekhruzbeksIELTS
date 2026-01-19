@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bekhruzbek's IELTS </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5fb4;
+            --primary-dark: #0d4a9c;
+            --secondary: #f8f9fa;
+            --accent: #ff6b35;
+            --text: #333;
+            --light-text: #666;
+            --border: #e1e5eb;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo-text h1 {
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: var(--light-text);
+        }
+        
+        .cert-badge {
+            background: linear-gradient(to right, #ffd700, #ffed4e);
+            color: #333;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 3px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background: #e55a2b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 50px 0;
+            background: linear-gradient(to right, #f8fafc, #e8f1fd);
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-text h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 25px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-text {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        /* Courses Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+        }
+        
+        .course-header h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .course-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .course-body {
+            padding: 20px;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .course-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .course-features li i {
+            color: var(--primary);
+        }
+        
+        .course-duration {
+            display: inline-block;
+            background: #e8f1fd;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Word of the Day Section */
+        .word-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .word-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .word-header h3 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .word-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .word-definition h4 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .word-type {
+            display: inline-block;
+            background: #f0f7ff;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .example {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin-top: 20px;
+        }
+        
+        .example p {
+            font-style: italic;
+            color: var(--light-text);
+        }
+        
+        .example-author {
+            text-align: right;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--primary);
+        }
+        
+        .best-for {
+            display: inline-block;
+            background: #fff0e6;
+            color: var(--accent);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Latest Article */
+        .latest-article {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .article-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .article-header h3 {
+            font-size: 22px;
+        }
+        
+        .article-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .article-body {
+            padding: 30px;
+        }
+        
+        .article-date {
+            color: var(--light-text);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .article-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .article-excerpt {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #d1e3ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #d1e3ff;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .word-body {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-text h2 {
+                font-size: 28px;
+            }
+            
+            .courses {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="logo-text">
+                    <h1>IELTS CDI Prep</h1>
+                    <p>Bekhruzbek's IELTS</p>
+                    <div class="cert-badge">Real Exam Materials</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#courses">Listening Practice</a></li>
+                    <li><a href="#practice">Reading Practice</a></li>
+                    <li><a href="#practice">Writing Practice</a></li> 
+                    <li><a href="#practice">Speaking Practice</a></li>   
+                    <li><a href="#articles">Articles</a></li>
+                    <li><a href="#word">Word of the Day</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <a href="#" class="btn btn-outline">Sign In</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h2>Welcome to Real Exam CDI Tests</h2>
+                <p>Practice IELTS Listening, Reading, Writing, and Speaking in a real computer-based exam format.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-text">Listening CDI Tests</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-text">Practice Questions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                     <div class="stat-text"> Reading CDI Tests</div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <div class="container">
+        <div class="section-title" id="courses">
+            <h2>IELTS CDI Tests</h2>
+            <p>Choose from our structured courses designed to help you master each section of the IELTS exam</p>
+        </div>
+        
+        <div class="courses">
+            <!-- Listening -->
+            <div class="course-card">
+                <div class="course-header">
+                    <h3>Listening</h3>
+                    <p></p>
+                </div>
+                <div class="course-body">
+                    <div class="course-duration"></div>
+                    <ul class="course-features">
+                        <li><i class="fas fa-video"></i> Video lessons for each section</li>
+                        <li><i class="fas fa-chart-line"></i> Proven strategies & techniques</li>
+                        <li><i class="fas fa-calendar-check"></i> Daily practice exercises</li>
+                        <li><i class="fas fa-file-alt"></i> Progress tracking & feedback</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Start→</a>
+                </div>
+            </div>
+            
+            <!-- Reading -->
+            <div class="course-card">
+                <div class="course-header" style="background: #2ecc71;">
+                    <h3>Reading</h3>
+                    <p></p>
+                </div>
+                <div class="course-body">
+                    <div class="course-duration" style="background: #e8f8ef; color: #2ecc71;"></div>
+                    <ul class="course-features">
+                        <li><i class="fas fa-headphones"></i> Focused listening exercises</li>
+                        <li><i class="fas fa-video"></i> Step-by-step video lessons</li>
+                        <li><i class="fas fa-question-circle"></i> Common question types</li>
+                        <li><i class="fas fa-clock"></i> Time management strategies</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; background: #2ecc71;">Start→</a>
+                </div>
+            </div>
+            
+            <!-- Full Mock -->
+            <div class="course-card" id="practice">
+                <div class="course-header" style="background: #9c59b6;">
+                    <h3>Full Mock </h3>
+                    <p></p>
+                </div>
+                <div class="course-body">
+                    <div class="course-duration" style="background: #f4eef8; color: #9b59b6;"></div>
+                    <ul class="course-features">
+                        <li><i class="fas fa-clipboard-check"></i> Full-length mock tests</li>
+                        <li><i class="fas fa-bolt"></i> Instant scoring & feedback</li>
+                        <li><i class="fas fa-chart-pie"></i> Detailed performance analytics</li>
+                        <li><i class="fas fa-redo"></i> Repeat as many times as needed</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; background: #9b59b6;">Start→</a>
+                </div>
+            </div>
+                        <!-- Writing  -->
+            <div class="course-card" id="practice">
+                <div class="course-header" style="background: #59a8b6;">
+                    <h3>Writing </h3>
+                    <p></p>
+                </div>
+                <div class="course-body">
+                    <div class="course-duration" style="background: #f4eef8; color: #b659a2;"></div>
+                    <ul class="course-features">
+                        <li><i class="fas fa-clipboard-check"></i> Writing Task 1 and Task 2</li>
+                        <li><i class="fas fa-bolt"></i> Expert Feedback</li>
+                        <li><i class="fas fa-chart-pie"></i> AI Check</li>
+                        <li><i class="fas fa-redo"></i> Instant Scoring </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; background: #59b6b1;">Start →</a>
+                </div>
+            </div>
+            
+            
+            <!-- Article Lessons -->
+            <div class="course-card" id="articles">
+                <div class="course-header" style="background: #e74c3c;">
+                    <h3>Article Lessons</h3>
+                    <p>Build vocabulary & reading skills</p>
+                </div>
+                <div class="course-body">
+                    <div class="course-duration" style="background: #fdedec; color: #e74c3c;">Ongoing</div>
+                    <ul class="course-features">
+                        <li><i class="fas fa-newspaper"></i> Interactive article exercises</li>
+                        <li><i class="fas fa-book"></i> Vocabulary building activities</li>
+                        <li><i class="fas fa-search"></i> Reading comprehension practice</li>
+                        <li><i class="fas fa-comments"></i> Discussion questions</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%; background: #e74c3c;">Explore →</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Word of the Day -->
+        <div class="word-section" id="word">
+            <div class="word-header">
+                <h3>Word of the Day</h3>
+                <a href="#" class="btn btn-outline">See all →</a>
+            </div>
+            <div class="word-body">
+                <div class="word-definition">
+                    <h4>Embrace</h4>
+                    <div class="word-type">(v.)</div>
+                    <p>To accept something with great interest or enthusiasm.</p>
+                    <div class="best-for">Best for Writing Task 2</div>
+                    
+                    <div class="example">
+                        <p>"Republicans see scientific research as something to suspect rather than embrace."</p>
+                    </div>
+                </div>
+                
+                <div class="word-examples">
+                    <h4>Featured Examples</h4>
+                    <div class="example">
+                        <p>"I embrace the concept of the failure as much as I embrace the win of success."</p>
+                        <div class="example-author">Bekhruzbek Ravshanov</div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; background: #f0f7ff; padding: 15px; border-radius: 8px;">
+                        <h4>Submit Your Example</h4>
+                        <p style="margin: 10px 0; font-size: 14px;">Sign in to submit your own example sentence</p>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 15px; font-size: 14px;">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Latest Article -->
+        <div class="latest-article">
+            <div class="article-header">
+                <h3>Latest Article</h3>
+                <div class="article-tag">ENG</div>
+            </div>
+            <div class="article-body">
+                <div class="article-date">
+                    <i class="far fa-calendar"></i> January 19, 2026
+                </div>
+                <h3 class="article-title">How to Structure Your IELTS Writing Task 2 Essay for Maximum Score</h3>
+                <p class="article-excerpt">Learn the proven essay structure that examiners look for in a high-scoring IELTS Writing Task 2 response. This article breaks down each paragraph and shows you how to present your ideas logically and coherently.</p>
+                <a href="#" class="btn btn-accent">Read Full Article →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>IELTS Prep</h4>
+                    <p>Real exam-style practice tests for Listening, Reading, Writing, and Speaking.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-telegram fa-lg"></i></a>
+                        <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#practice">Practice Tests</a></li>
+                        <li><a href="#articles">Article Lessons</a></li>
+                        <li><a href="#word">Word of the Day</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">IELTS Tips & Strategies</a></li>
+                        <li><a href="#">Vocabulary Builder</a></li>
+                        <li><a href="#">Sample Answers</a></li>
+                        <li><a href="#">Study Plans</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@ielts-prep.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tashkent, Uzbekistan</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 IELTS CDI Prep by Bekhruzbek Ravshanov. All rights reserved.
+                <p>&copy;Disclaimer: This is an independent English language practice platform. We are NOT affiliated with, endorsed by, or connected to IELTS, Cambridge Assessment English, the British Council, IDP: IELTS Australia, or any official IELTS testing organization. IELTS is a registered trademark of the University of Cambridge, the British Council, and IDP Education Australia. This website provides educational practice materials only.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effect to course cards
+            const courseCards = document.querySelectorAll('.course-card');
+            courseCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Simulate a sign in/up form (basic)
+            const signInBtn = document.querySelector('.btn-outline');
+            const signUpBtn = document.querySelector('.btn-primary');
+            
+            signInBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Sign In form would open here. In a real implementation, this would be a modal or redirect to a login page.');
+            });
+            
+            signUpBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Sign Up form would open here. In a real implementation, this would be a registration form.');
+            });
+        });
+    </script>
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Prep | Structured Approach by Ulugbek Umidjonov</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a5fb4;
+            --primary-dark: #0d4a9c;
+            --secondary: #f8f9fa;
+            --accent: #ff6b35;
+            --text: #333;
+            --light-text: #666;
+            --border: #e1e5eb;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .logo-text h1 {
+            font-size: 22px;
+            color: var(--primary);
+        }
+        
+        .logo-text p {
+            font-size: 12px;
+            color: var(--light-text);
+        }
+        
+        .cert-badge {
+            background: linear-gradient(to right, #ffd700, #ffed4e);
+            color: #333;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 3px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background: #e55a2b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 50px 0;
+            background: linear-gradient(to right, #f8fafc, #e8f1fd);
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-text h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .hero-text p {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 25px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-text {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        /* Courses Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+        }
+        
+        .course-header h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .course-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .course-body {
+            padding: 20px;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .course-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .course-features li i {
+            color: var(--primary);
+        }
+        
+        .course-duration {
+            display: inline-block;
+            background: #e8f1fd;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Word of the Day Section */
+        .word-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .word-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .word-header h3 {
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .word-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .word-definition h4 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+        
+        .word-type {
+            display: inline-block;
+            background: #f0f7ff;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .example {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin-top: 20px;
+        }
+        
+        .example p {
+            font-style: italic;
+            color: var(--light-text);
+        }
+        
+        .example-author {
+            text-align: right;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--primary);
+        }
+        
+        .best-for {
+            display: inline-block;
+            background: #fff0e6;
+            color: var(--accent);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        /* Latest Article */
+        .latest-article {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .article-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .article-header h3 {
+            font-size: 22px;
+        }
+        
+        .article-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .article-body {
+            padding: 30px;
+        }
+        
+        .article-date {
+            color: var(--light-text);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .article-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .article-excerpt {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #d1e3ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #d1e3ff;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .word-body {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-text h2 {
+                font-size: 28px;
+            }
+            
+            .courses {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+</html>
